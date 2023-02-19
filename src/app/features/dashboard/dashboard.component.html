@@ -1,0 +1,62 @@
+<div class="container m-5">
+<div class="columns">
+    <div class="column is-4">
+        <div class="card">
+            <div class="card-content">
+              <div class="content">
+                <p>  Total Slots: {{totalSlots}} </p> 
+               <p>   Parked Vehicles: {{parkedVehicleCount}} </p> 
+               <p>   Empty Slots: {{emptySlots}}  </p>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="column is-4">
+        <div class="card">
+            <div class="card-content">
+              <div class="content">
+                <p>  Cars Parked: {{carsCount}} </p> 
+               <p>   Microbuses Parked: {{microbusCount}} </p> 
+               <p>   Trucks Parked: {{trucksCount}}  </p>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="column is-4">
+        <div class="card">
+            <div class="card-content">
+              <div class="content">
+                <p>These vehicles have been parked for more than 2 hours:</p>
+                <p *ngFor="let item of longTimeParkedList">{{item.licenseNumber}}</p>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>
+<div class="columns">
+    <div class="column is-4">
+        <div class="card">
+            <div class="card-content">
+                <div class="content">
+                    <div class="mb-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Filter by Date</mat-label>
+                        <input matInput [matDatepicker]="picker" [formControl]="filterDate">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>
+                    </div>
+                    <div>
+                        <p>Selected date's List: </p>
+                        <p *ngFor="let item of filteredList">
+                            {{item.licenseNumber}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>

@@ -1,0 +1,53 @@
+<div class="formContainer">
+ 
+    <form class="example-form" [formGroup]="vehicleData" (ngSubmit)="onSubmit()">
+        <mat-form-field class="example-full-width">
+          <mat-label>Vechile License Number</mat-label>
+                <input type="text" matInput formControlName="licenseNumber" >
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Vehicle type</mat-label>
+            <mat-select formControlName="vehicleType" name="food" (valueChange)="onVehicleTypeChange()">
+              <mat-option *ngFor="let item of vehicleTypes" [value]="item">
+                {{item}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Vechile Owner Name</mat-label>
+                <input type="text" matInput formControlName="ownerName" >
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Vechile Owner Phone</mat-label>
+                <input type="text" matInput formControlName="ownerPhone" >
+        </mat-form-field>
+          <mat-label>Status</mat-label>
+          <mat-radio-group aria-label="Select an option" formControlName="status" >
+            <mat-radio-button value="in" >In</mat-radio-button>
+            <mat-radio-button value="out" >Out</mat-radio-button>
+          </mat-radio-group>
+          
+        <mat-form-field class="example-full-width">
+          <mat-label>Address</mat-label>
+                <input type="text" matInput formControlName="ownerAddress" >
+        </mat-form-field>
+        <div class="dateContainer">
+         <span class="dateField">
+          <p>Entry Time</p>
+          <input type="date" class="dateInputField" matInput formControlName="entryDate" placeholder="Entry Time">
+          <input type="time" class="dateInputField" matInput formControlName="entryTime" placeholder="Entry Time">
+         </span>
+         <span  class="dateField">
+          <p>Exit Time</p>
+          <input type="date" class="dateInputField" matInput formControlName="exitDate" placeholder="Exit Time">
+          <input type="time" class="dateInputField" matInput formControlName="exitTime" placeholder="Entry Time">
+         </span>
+        </div>
+        <mat-form-field class="example-full-width">
+          <mat-label>Parking Charge</mat-label>
+                <input type="text" matInput formControlName="parkingCharge" >
+        </mat-form-field>
+        <button mat-flat-button color="primary">Save</button>
+      </form>
+
+</div>

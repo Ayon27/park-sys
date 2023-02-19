@@ -1,0 +1,16 @@
+<mat-toolbar color="primary"> 
+    <button mat-icon-button class="example-icon mr-2" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Parking System</span>
+    <span class="example-spacer"></span>
+    <button mat-button class="example-icon favorite-icon mr-2" aria-label="Example icon-button with heart icon" (click)="navigateToRegister()">
+        Add Vehicle
+      </button>
+    <button  mat-button class="example-icon favorite-icon mr-2" aria-label="Example icon-button with heart icon" (click)="navigateToList()">
+        Data Table
+    </button>  <button  mat-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" (click)="navigateToDashboard()">
+        Dashboard
+    </button>
+</mat-toolbar>
+<router-outlet></router-outlet>

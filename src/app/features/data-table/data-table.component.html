@@ -1,0 +1,43 @@
+<div class="tableContainer">
+    <table mat-table  [dataSource]="vehicleList"  class="mat-elevation-z8">
+
+\      
+        <ng-container matColumnDef="vehicleType">
+          <th mat-header-cell *matHeaderCellDef> VehicleType </th>
+          <td mat-cell *matCellDef="let element"> {{element.vehicleType}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="OwnerName">
+          <th mat-header-cell *matHeaderCellDef> Owner Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.ownerName}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="LicenseNo">
+          <th mat-header-cell *matHeaderCellDef> License No </th>
+          <td mat-cell *matCellDef="let element"> {{element.licenseNumber}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="EntryTime">
+          <th mat-header-cell *matHeaderCellDef> Entry Time </th>
+          <td mat-cell *matCellDef="let element"> {{element.entryTime}} </td>
+        </ng-container>
+        <ng-container matColumnDef="ExitTime">
+          <th mat-header-cell *matHeaderCellDef> Exit Time </th>
+          <td mat-cell *matCellDef="let element"> {{element.exitTime}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Status">
+          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Edit">
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td mat-cell *matCellDef="let element"> <button mat-raised-button color="primary" (click)="editVehicleInfo(element)">Edit</button> </td>
+           
+          </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="columns"></tr>
+        <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+      </table>
+      
+      
+</div>
