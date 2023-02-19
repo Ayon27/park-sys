@@ -76,27 +76,17 @@ filterDate = new FormControl(new Date())
   setVehiclesParkedForLongTime():void {
    const date = new Date().toTimeString()
    const currentTime = date.slice(0,date.lastIndexOf(':'))
- const currentTimeInMs:any = new Date(2000, 0, 1,  parseInt(currentTime[0]), parseInt(currentTime[1]));
+ const currentTimeInMs:any = new Date().setHours(parseInt(currentTime[0]), parseInt(currentTime[1]));
    
    
    this.longTimeParkedList = this.parkedVehicles.filter(vehicle => {
       const timeList:string[] = vehicle.entryTime.split(':')
-     const parkedTime:any = new Date(2000, 0, 1,  parseInt(timeList[0]), parseInt(timeList[1]));
-  
-return   Math.abs(currentTimeInMs - parkedTime) >  7200000
-   
+     const parkedTime:any = new Date().setHours(parseInt(timeList[0]), parseInt(timeList[1]));
+    return vehicle.entryDate === this.datePipe.transform(new Date(), 'yyyy-MM-dd')
+      && Math.abs(currentTimeInMs - parkedTime) >  7200000
+    
     })
   }
 
-  onDateSelect():void {
-    console.log('asd');
-    
-  }
 
-  convertToMs(list:string[]):number {
-    const h:number = parseInt(list[0]) * 3600;
-    const m:number = parseInt(list[1]) * 60
-   return (h+m) * 1000
-   
-  }
 }
